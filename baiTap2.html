@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<b>Amount</b><br><input type="text" id="nhap" value="">
+<b>From Currency</b>
+<select id="hien1" style="width: 200px; height: 30px">
+  <option value="vnd">VietNam</option>
+  <option value="usd">Dollars</option>
+</select>
+<b>To Currency</b>
+<select id="hien2" style="width: 200px; height: 30px">
+  <option value="vnd">VND</option>
+  <option value="usd">USD</option>
+</select>
+<button onclick="ketqua()" style="background-color: blueviolet; color: white">Convert</button>
+<h4 style="color: cornflowerblue" id="resul">Result</h4>
+</body>
+<script>
+  function ketqua() {
+    let so = document.getElementById('nhap').value;
+    let hien1 = document.getElementById('hien1').value;
+    let hien2 = document.getElementById('hien2').value;
+    let resul;
+    if (hien1 === hien2) {
+      resul = so;
+
+    } else {
+      if (hien1 === 'vnd') {
+        resul = so / 24000;
+      } else {
+        resul = so * 24000;
+      }
+    }
+    document.getElementById('resul').innerHTML = resul + " " + hien2;
+  }
+</script>
+</html>
